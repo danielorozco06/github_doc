@@ -1,0 +1,5 @@
+requests
+beautifulsoup4
+pdfkit
+types-requests
+types-beautifulsoup4
