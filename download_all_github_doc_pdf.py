@@ -8,15 +8,19 @@ import pdfkit  # type: ignore
 import requests
 from bs4 import BeautifulSoup
 
-# Define the output path
-file = os.path.join("output", "all_docs.pdf")
-
-# Initialize an empty string to hold all HTML content
-all_html = ""
-
 # Open the file with the URLs
 with open("output/links.txt", "r") as f:
     urls = f.readlines()
+
+# Get the first URL and extract the last part
+first_url = urls[0].strip()
+pdf_name = first_url.split("/")[-2] + ".pdf"
+
+# Define the output path
+file = os.path.join("output", pdf_name)
+
+# Initialize an empty string to hold all HTML content
+all_html = ""
 
 # Loop over each URL
 for url in urls:
