@@ -12,9 +12,10 @@ from bs4 import BeautifulSoup
 with open("output/links.txt", "r") as f:
     urls = f.readlines()
 
-# Get the first URL and extract the last part
+# Get the first URL and extract the antepenultimate and penultimate parts
 first_url = urls[0].strip()
-pdf_name = first_url.split("/")[-2] + ".pdf"
+parts = first_url.split("/")
+pdf_name = parts[-3] + "_" + parts[-2] + ".pdf"
 
 # Define the output path
 file = os.path.join("output", pdf_name)
