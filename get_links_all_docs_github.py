@@ -2,6 +2,8 @@
 File to extract all links from the GitHub Copilot documentation page
 """
 
+import subprocess
+
 import requests
 from bs4 import BeautifulSoup
 
@@ -34,3 +36,6 @@ links = [link.get("href") for link in links if link.get("href") is not None]
 with open("output/links.txt", "w") as f:
     for link in links:
         f.write("https://docs.github.com/%s\n" % link)
+
+# Execute the script
+subprocess.run(["python", "download_all_github_doc_pdf.py"], check=True)
